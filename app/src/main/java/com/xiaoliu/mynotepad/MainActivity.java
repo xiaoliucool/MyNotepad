@@ -1,37 +1,35 @@
 package com.xiaoliu.mynotepad;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+import com.xiaoliu.adapter.MyAdapter;
+import com.xiaoliu.db.dao.NotesDao;
+import com.xiaoliu.domain.Note;
+
+import java.util.List;
+
+public class MainActivity extends Activity {
+    //listView的适配器
+    private MyAdapter adapter;
+    //主界面上的控件
+    private ListView listView;
+    private Button addBtn;
+    //数据库访问
+    private NotesDao dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initViews();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void initViews(){
+        listView = (ListView) findViewById(R.id.lv);
+        addBtn = (Button) findViewById(R.id.btn);
+        adapter = new MyAdapter(this);
+        listView.setAdapter(adapter);
     }
 }

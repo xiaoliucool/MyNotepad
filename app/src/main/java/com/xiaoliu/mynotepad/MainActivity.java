@@ -30,9 +30,14 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public void initViews(){
         listView = (ListView) findViewById(R.id.lv);
         addBtn = (Button) findViewById(R.id.btn);
+        addBtn.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         adapter = new MyAdapter(this);
         listView.setAdapter(adapter);
-        addBtn.setOnClickListener(this);
     }
 
     @Override

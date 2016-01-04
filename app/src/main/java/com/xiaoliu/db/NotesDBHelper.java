@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 /**
  * Created by Administrator on 2015/12/29.
  */
-public class NotesDB extends SQLiteOpenHelper {
+public class NotesDBHelper extends SQLiteOpenHelper {
 
     //数据库表相关列名
     public static final String TABLE_NAME = "notes";
@@ -17,7 +17,7 @@ public class NotesDB extends SQLiteOpenHelper {
     public static final String VIDEO = "video";
     public static final String TIME = "time";
 
-    public NotesDB(Context context) {
+    public NotesDBHelper(Context context) {
         super(context, "notes", null, 1);
     }
 
@@ -27,7 +27,7 @@ public class NotesDB extends SQLiteOpenHelper {
                         + ID + " integer primary key autoincrement, "
                         + CONTENT + " text not null, "
                         + TIME + " text not null, "
-                        + IMG + " text, "
+                        + IMG + " integer, "
                         + VIDEO + " text)"
         );
     }

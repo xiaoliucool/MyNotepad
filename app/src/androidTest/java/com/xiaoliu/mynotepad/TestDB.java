@@ -1,8 +1,9 @@
 package com.xiaoliu.mynotepad;
 
+import android.content.SyncStatusObserver;
 import android.test.AndroidTestCase;
 
-import com.xiaoliu.db.dao.NotesDao;
+import com.xiaoliu.db.ImgDBHelper;
 import com.xiaoliu.utils.TimeUtils;
 
 /**
@@ -16,7 +17,11 @@ public class TestDB extends AndroidTestCase {
         }
         System.out.println("测试完成！");
     }*/
-    public void testGetImgName(){
+    /*public void testGetImgName(){
         TimeUtils.getTime();
+    }*/
+    public void testImgDB(){
+        ImgDBHelper helper = new ImgDBHelper(getContext());
+        System.out.println("测试完成");
     }
 }

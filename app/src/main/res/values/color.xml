@@ -2,4 +2,13 @@
 <resources>
     <color name="red_dark">#ffb52121</color>
     <color name="red_light">#ffcd2222</color>
+    <color name="common_green">#4CAF50</color>
+    <color name="white">#ffffff</color>
+    <color name="primary">#FF5722</color>
+    <color name="primary_dark">#E64A19</color>
+    <color name="accent">#4CAF50</color>
+    <color name="text_icon">#000000</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="primary_text">#212121</color>
+    <color name="light_primary">#FFF8DC</color>
 </resources>

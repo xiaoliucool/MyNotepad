@@ -7,7 +7,7 @@ public class Note {
     private int id ;
     private String time;
     private String content;
-    private String img;
+    private int img;
     private String video;
 
     public String getTime() {
@@ -34,11 +34,11 @@ public class Note {
         this.content = content;
     }
 
-    public String getImg() {
+    public int getImg() {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(int img) {
         this.img = img;
     }
 

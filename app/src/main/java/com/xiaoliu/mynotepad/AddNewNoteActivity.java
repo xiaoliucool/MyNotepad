@@ -51,7 +51,7 @@ public class AddNewNoteActivity extends Activity implements View.OnClickListener
     //图片路径
     private String imageFilePath;
     //图片的数量
-    private static int photos = 0;
+    private  int photos = 0;
     //数据库
     private ImgDao imgDao;
     private NotesDao notesDao;
@@ -191,11 +191,12 @@ public class AddNewNoteActivity extends Activity implements View.OnClickListener
                 cursor.moveToFirst();
                 String imgURL = cursor.getString(cursor
                         .getColumnIndex(MediaStore.Images.Media.DATA));
+                System.out.println("选择已有的图片路径："+imgURL);
                 Bitmap bitmap = ImgUtils.decodeSampledBitmapFromFile(imgURL, 100, 100);
                 //Bitmap bitmap = BitmapFactory.decodeFile(imgURL);
                 list.add(bitmap);
-                photos++;
-                imgUrls.add(photos, imgURL);
+                imgUrls.add(photos++, imgURL);
+                System.out.println("怎么回事:"+"序号："+(photos-1)+imgUrls.get(photos-1));
                 adapter.notifyDataSetChanged();
             }
         }
@@ -204,8 +205,7 @@ public class AddNewNoteActivity extends Activity implements View.OnClickListener
             Log.i("AddNewActivity", requestCode + "");
             Bitmap bitmap = ImgUtils.decodeSampledBitmapFromFile(imageFilePath, 100, 100);
             list.add(bitmap);
-            photos++;
-            imgUrls.add(photos, imageFilePath);
+            imgUrls.add(photos++, imageFilePath);
             adapter.notifyDataSetChanged();
             Log.i("AddNewActivity", "添加数据成功");
         }
@@ -220,6 +220,9 @@ public class AddNewNoteActivity extends Activity implements View.OnClickListener
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.cancel_btn:
+                finish();
+                break;
         }
     }
 
@@ -229,6 +232,7 @@ public class AddNewNoteActivity extends Activity implements View.OnClickListener
     private void saveData() {
         String text = noteEt.getText().toString().trim();
         int imgID = imgDao.getCount()+1;
+        System.out.println("便签数据库中对应的图片id:"+imgID+"对应的路径："+imgUrls.get(0)+" "+imgUrls.get(1));
         imgDao.add(imgUrls.get(0),imgUrls.get(1),imgUrls.get(2),imgUrls.get(3),imgUrls.get(4),imgUrls.get(5),imgUrls.get(6),imgUrls.get(7),imgUrls.get(8));
         notesDao.add(text,TimeUtils.getTime(),imgID,"");
     }

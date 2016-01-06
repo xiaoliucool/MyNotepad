@@ -20,13 +20,11 @@ import java.util.List;
 public class MyAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater mInflater;
-    private NotesDao dao ;
     private List<Note> list;
-    public MyAdapter(Context context){
+    public MyAdapter(Context context, List<Note> list){
         mInflater = LayoutInflater.from(context);
         this.context = context;
-        dao = new NotesDao(context);
-        list = dao.findAll();
+        this.list = list;
     }
 
     @Override

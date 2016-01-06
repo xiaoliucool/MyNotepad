@@ -3,6 +3,7 @@ package com.xiaoliu.db.dao;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.xiaoliu.db.ImgDBHelper;
@@ -44,40 +45,63 @@ public class ImgDao {
         Cursor cursor = db.rawQuery("select * from imgs", null);
         ArrayList<Img> list = new ArrayList<>();
         while (cursor.moveToNext()) {
-            int id = cursor.getInt(cursor.getColumnIndex(ImgDBHelper.ID));
-            String url1 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL1));
-            String url2 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL2));
-            String url3 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL3));
-            String url4 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL4));
-            String url5 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL5));
-            String url6 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL6));
-            String url7 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL7));
-            String url8 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL8));
-            String url9 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL9));
-
-            Img img = new Img();
-            img.setId(id);
-            img.setUrl1(url1);
-            img.setUrl2(url2);
-            img.setUrl3(url3);
-            img.setUrl4(url4);
-            img.setUrl5(url5);
-            img.setUrl6(url6);
-            img.setUrl7(url7);
-            img.setUrl8(url8);
-            img.setUrl9(url9);
+            Img img = getImg(cursor);
             list.add(img);
         }
         db.close();
         return list;
     }
 
+    @NonNull
+    private Img getImg(Cursor cursor) {
+        int id = cursor.getInt(cursor.getColumnIndex(ImgDBHelper.ID));
+        String url1 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL1));
+        String url2 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL2));
+        String url3 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL3));
+        String url4 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL4));
+        String url5 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL5));
+        String url6 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL6));
+        String url7 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL7));
+        String url8 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL8));
+        String url9 = cursor.getString(cursor.getColumnIndex(ImgDBHelper.IMGURL9));
+
+        Img img = new Img();
+        System.out.println("图片路径:"+url1);
+        System.out.println("图片路径2:"+url2);
+        img.setId(id);
+        img.setUrl1(url1);
+        img.setUrl2(url2);
+        img.setUrl3(url3);
+        img.setUrl4(url4);
+        img.setUrl5(url5);
+        img.setUrl6(url6);
+        img.setUrl7(url7);
+        img.setUrl8(url8);
+        img.setUrl9(url9);
+        return img;
+    }
+
+    /**
+     * 查询单条数据
+     */
+    public Img find(int id){
+        SQLiteDatabase db = imgDBHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from imgs where _id = " + id, null);
+        cursor.moveToFirst();
+        Img img = getImg(cursor);
+        if(img!=null){
+            System.out.println("图片查询成功！");
+
+        }
+        db.close();
+        return img;
+    }
     /**
      * 删除数据库的某条数据
      */
     public void delete(int id) {
         SQLiteDatabase db = imgDBHelper.getWritableDatabase();
-        db.execSQL("delete from img where _id = ?", new Object[]{id});
+        db.execSQL("delete from imgs where _id = ?", new Object[]{id});
         db.close();
     }
 
@@ -94,7 +118,9 @@ public class ImgDao {
      */
     public int getCount(){
         SQLiteDatabase db  = imgDBHelper.getReadableDatabase();
-        Cursor cursor =  db.rawQuery("select count(*) from imgs", null);
+        Cursor cursor =  db.rawQuery("select * from imgs", null);
+        cursor.getCount();
+        System.out.println("图片数据库的条数:" + cursor.getCount());
         return cursor.getCount();
     }
 }

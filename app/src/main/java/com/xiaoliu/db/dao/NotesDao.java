@@ -3,6 +3,7 @@ package com.xiaoliu.db.dao;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 
 import com.xiaoliu.db.NotesDBHelper;
 import com.xiaoliu.domain.Note;
@@ -37,21 +38,40 @@ public class NotesDao {
         Cursor cursor = db.rawQuery("select * from notes", null);
         ArrayList<Note> list = new ArrayList<>();
         while (cursor.moveToNext()) {
-            int id = cursor.getInt(cursor.getColumnIndex(NotesDBHelper.ID));
-            String content = cursor.getString(cursor.getColumnIndex(NotesDBHelper.CONTENT));
-            String time = cursor.getString(cursor.getColumnIndex(NotesDBHelper.TIME));
-            int img = cursor.getInt(cursor.getColumnIndex(NotesDBHelper.IMG));
-            String video = cursor.getString(cursor.getColumnIndex(NotesDBHelper.VIDEO));
-            Note note = new Note();
-            note.setId(id);
-            note.setContent(content);
-            note.setImg(img);
-            note.setTime(time);
-            note.setVideo(video);
+            Note note = getNote(cursor);
             list.add(note);
         }
         db.close();
         return list;
+    }
+
+    @NonNull
+    private Note getNote(Cursor cursor) {
+        int id = cursor.getInt(cursor.getColumnIndex(NotesDBHelper.ID));
+        String content = cursor.getString(cursor.getColumnIndex(NotesDBHelper.CONTENT));
+        String time = cursor.getString(cursor.getColumnIndex(NotesDBHelper.TIME));
+        int img = cursor.getInt(cursor.getColumnIndex(NotesDBHelper.IMG));
+        System.out.println("note中图片的id"+img);
+        String video = cursor.getString(cursor.getColumnIndex(NotesDBHelper.VIDEO));
+        Note note = new Note();
+        note.setId(id);
+        note.setContent(content);
+        note.setImg(img);
+        note.setTime(time);
+        note.setVideo(video);
+        return note;
+    }
+
+    /**
+     * 根据id获取单条数据
+     */
+    public Note find(int id){
+        SQLiteDatabase db = notesDBHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from notes where _id = " + id, null);
+        cursor.moveToFirst();
+        Note note = getNote(cursor);
+        db.close();
+        return note;
     }
 
     /**

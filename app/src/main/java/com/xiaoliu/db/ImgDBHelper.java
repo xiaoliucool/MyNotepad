@@ -41,7 +41,7 @@ public class ImgDBHelper extends SQLiteOpenHelper{
                         + IMGURL8 + " text, "
                         + IMGURL9 + " text)"
         );
-        Log.i("IMG","success!");
+        Log.i("IMG","图片数据库创建成功!");
     }
 
     @Override

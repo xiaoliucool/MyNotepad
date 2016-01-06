@@ -1,0 +1,2 @@
+# MyNotepad
+A simple notepad.

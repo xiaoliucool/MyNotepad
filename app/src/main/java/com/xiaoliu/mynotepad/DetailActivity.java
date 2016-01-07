@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -84,6 +85,15 @@ public class DetailActivity extends Activity implements View.OnClickListener{
         }
         adapter = new MyDetailGridViewAdapter(this, photoslist,R.layout.grid_detail_item);
         photoGv.setAdapter(adapter);
+        photoGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(DetailActivity.this, ImageDetailsActivity.class);
+                intent.putExtra("image_position",i);
+                intent.putExtra("imgID", imgID);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -9,13 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="366ffca4-883a-40d6-b728-b71e6dc1a1ed" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaoliu/mynotepad/ImageDetailsActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaoliu/utils/ImageLoader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/image_details.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/zoom_image.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xiaoliu/mynotepad/DetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaoliu/mynotepad/DetailActivity.java" />
+    <list default="true" id="366ffca4-883a-40d6-b728-b71e6dc1a1ed" name="Default" comment="完成详细界面中照片的画廊查看功能，采用图片压缩、缓存和viewPager">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MyNotepad.iws" />
@@ -2198,7 +2192,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452076077335</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完成详细界面中照片的画廊查看功能，采用图片压缩、缓存和viewPager">
+      <created>1452157787130</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1452157787130</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2258,7 +2258,8 @@
     <MESSAGE value="修改主界面，增加图片数据表，完成新便签的存储与显示。" />
     <MESSAGE value="主界面修改onResume,解决从新便签界面保存完成后，主界面不立即显示新便签的问题。" />
     <MESSAGE value="完成详细信息界面的展示" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成详细信息界面的展示" />
+    <MESSAGE value="完成详细界面中照片的画廊查看功能，采用图片压缩、缓存和viewPager" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成详细界面中照片的画廊查看功能，采用图片压缩、缓存和viewPager" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

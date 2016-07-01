@@ -9,8 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="366ffca4-883a-40d6-b728-b71e6dc1a1ed" name="Default" comment="完成详细界面中照片的画廊查看功能，采用图片压缩、缓存和viewPager">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xiaoliu/mvp/Helo.java" />
+    <list default="true" id="366ffca4-883a-40d6-b728-b71e6dc1a1ed" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MyNotepad.iws" />
@@ -2089,7 +2088,13 @@
       <option name="project" value="LOCAL" />
       <updated>1467360126378</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add helo">
+      <created>1467361191873</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1467361191873</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2151,7 +2156,8 @@
     <MESSAGE value="完成详细信息界面的展示" />
     <MESSAGE value="完成详细界面中照片的画廊查看功能，采用图片压缩、缓存和viewPager" />
     <MESSAGE value="add  baseModel" />
-    <option name="LAST_COMMIT_MESSAGE" value="add  baseModel" />
+    <MESSAGE value="add helo" />
+    <option name="LAST_COMMIT_MESSAGE" value="add helo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

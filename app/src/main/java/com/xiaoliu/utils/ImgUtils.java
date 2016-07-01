@@ -100,4 +100,5 @@ public class ImgUtils {
         Log.i("AddNewActivity", "压缩比例"+inSampleSize);
         return inSampleSize;
     }
+    public static void fun(){}
 }

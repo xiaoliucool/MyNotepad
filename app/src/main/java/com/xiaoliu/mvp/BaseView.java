@@ -5,4 +5,5 @@ package com.xiaoliu.mvp;
  */
 public interface BaseView {
     void showTest(String text);
+    void set();
 }

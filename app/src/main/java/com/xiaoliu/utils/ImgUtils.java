@@ -101,4 +101,5 @@ public class ImgUtils {
         return inSampleSize;
     }
     public static void fun(){}
+    public static void fun2(){}
 }
